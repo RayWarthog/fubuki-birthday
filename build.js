@@ -1,6 +1,9 @@
 const template_file = 'index.handlebars';
 const output_html_file = "index.html";
 
+const parse = require('csv-parse/lib/sync');
+const message_csv_file = 'messages.csv';
+
 const minify = require('html-minifier').minify;
 const handlebars = require('handlebars');
 const fs = require('fs').promises;
@@ -20,9 +23,25 @@ const CleanCSS = require('clean-css');
         console.log(err)
     })
 
+    let message_data = []
+
+    const content = await fs.readFile(message_csv_file);
+    const records = parse(content, { from_line: 2 });
+
+    records.map(
+        record => {
+            message_row = {
+                targetid: record[0],
+                name: record[1].trim(),
+                msg: record[2].trim()
+            };
+            message_data.push(message_row);
+        }
+    );
+
     const template_source = await (await fs.readFile(template_file)).toString();
     template_data = {
-
+        messages: message_data
     };
 
     var template = handlebars.compile(template_source);

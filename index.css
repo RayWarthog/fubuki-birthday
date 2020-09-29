@@ -12,6 +12,8 @@
     display: inline-block;
     width: 85vw;
     height: calc(85vw * 2635/4400);
+    background-image: url("img/plaintext.png");
+    background-size: contain;
 }
 
 #main-img-container img {
@@ -35,7 +37,7 @@ img.oruyanke:hover {
     filter: drop-shadow(3px 3px 0 yellow) drop-shadow(-3px -3px 0 yellow);
 }
 
-.tooltip {
+.msg-container {
     display: none;
     background: #333;
     color: white;
@@ -44,18 +46,18 @@ img.oruyanke:hover {
     font-size: 13px;
     border-radius: 4px;
 }
-.tooltip[data-show] {
+.msg-container[data-show] {
     display: block;
 }
 
-#oryk-1 {
+#or1 {
     top: 18%;
     left: 5%;
     width: 10%;
     transform: scaleX(-1) rotate(20deg);
 }
 
-#oryk-2 {
+#or2 {
     top: -9%;
     left: 13%;
     transform: scaleY(-1) scaleX(-1) rotate(-17deg);

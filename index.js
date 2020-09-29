@@ -1,23 +1,30 @@
-let hover_elem = document.querySelector('#oryk-1');
-let hover_tooltip = document.querySelector('#oryk-1-tooltip');
-
-Popper.createPopper(hover_elem, hover_tooltip);
-
-function show() {
-    hover_tooltip.setAttribute('data-show', '');
-}
-
-function hide() {
-    hover_tooltip.removeAttribute('data-show');
-}
-
 const showEvents = ['mouseenter', 'focus'];
 const hideEvents = ['mouseleave', 'blur'];
 
-showEvents.forEach(event => {
-    hover_elem.addEventListener(event, show);
-});
+function show() {
+    this.setAttribute('data-show', '');
+}
 
-hideEvents.forEach(event => {
-    hover_elem.addEventListener(event, hide);
+function hide() {
+    this.removeAttribute('data-show');
+}
+
+let message_nodes = document.querySelector('#messages-container').childNodes
+message_nodes.forEach(function (message_node) {
+    let target_id = message_node.getAttribute('data-target');
+    let or = document.getElementById(target_id);
+
+    if (or) {
+        Popper.createPopper(or, message_node);
+        showEvents.forEach(function (event) {
+            or.addEventListener(event, function () {
+                message_node.setAttribute('data-show', '');
+            });
+        });
+        hideEvents.forEach(function (event) {
+            or.addEventListener(event, function () {
+                message_node.removeAttribute('data-show');
+            });
+        });
+    }
 });

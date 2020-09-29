@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,22 +12,28 @@
 
     <link rel="stylesheet" href="index.min.css">
 </head>
+
 <body>
     <div id="content">
         <div id="main-img-container">
-            <img id="bg-txt" src="img/plaintext.png" alt="background">
             <img id="fbk-img" src="img/plainfbk.png" alt="fubuki">
 
-            <img id="oryk-1" class="oruyanke" src="img/templateoruyanke.png" alt="oruyanke-1">
-            <img id="oryk-2" class="oruyanke" src="img/templateoruyanke.png" alt="oruyanke-2">
+            <img id="or1" class="oruyanke" src="img/templateoruyanke.png">
+            <img id="or2" class="oruyanke" src="img/templateoruyanke.png">
         </div>
-        <div id="oryk-1-tooltip" class="tooltip">
-            <div class="name">NepStrife#4217</div>
-            <div class="msg">Hi! I hope you are enjoying your birthday. Since I found out about Fubuki-san, my everyday life has been a lot brighter and full of laughter. I will continue to support you for years to come. Happy birthday!</div>
+    </div>
+
+    <div id="messages-container">
+        {{#each messages}}
+        <div class="msg-container" data-target="{{targetid}}">
+            <div class="name">{{name}}</div>
+            <div class="msg">{{msg}}</div>
         </div>
+        {{/each}}
     </div>
 
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="index.js"></script>
 </body>
+
 </html>
