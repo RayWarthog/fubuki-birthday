@@ -12,7 +12,7 @@
     display: inline-block;
     width: 85vw;
     height: calc(85vw * 2635/4400);
-    background-image: url("img/plaintext.png");
+    background-image: url("../img/plaintext.png");
     background-size: contain;
 }
 
