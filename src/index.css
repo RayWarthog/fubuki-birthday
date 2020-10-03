@@ -35,7 +35,7 @@ img.oruyanke {
     width: 10%;
 }
 
-img.oruyanke:hover {
+img.oruyanke:hover, img.oruyanke[aria-expanded="true"] {
     -webkit-filter: drop-shadow(3px 3px 0 yellow) drop-shadow(-3px -3px 0 yellow);
     filter: drop-shadow(3px 3px 0 yellow) drop-shadow(-3px -3px 0 yellow);
 }
