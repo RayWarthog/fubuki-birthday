@@ -46,20 +46,14 @@ img.oruyanke:hover {
     font-size: 13px;
     border-radius: 4px;
 }
+
 .msg-container[data-show] {
     display: block;
 }
 
-#or1 {
-    top: 18%;
-    left: 5%;
-    width: 10%;
-    transform: scaleX(-1) rotate(20deg);
-}
-
-#or2 {
-    top: -9%;
-    left: 13%;
-    transform: scaleY(-1) scaleX(-1) rotate(-17deg);
-    width: 14%;
+#edit-controls {
+    position: fixed;
+    top: 0;
+    padding: 5px;
+    display: none;
 }
