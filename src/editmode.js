@@ -38,7 +38,7 @@ let toggleEditMode = (enable) => {
 }
 
 $('#add-btn').click(function () {
-    let elem = $('<img></img>').addClass('oruyanke').attr('src', "img/templateoruyanke.png");
+    let elem = $('<img></img>').addClass('oruyanke').attr('src', "dist/img/templateoruyanke.png");
     $('#main-img-container').append(elem);
     make_element_transformable(elem);
 });

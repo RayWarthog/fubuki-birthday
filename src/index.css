@@ -12,7 +12,7 @@
     display: inline-block;
     width: 85vw;
     height: calc(85vw * 2635/4400);
-    background-image: url("../img/plaintext.png");
+    background-image: url("img/plaintext.png");
     background-repeat: no-repeat;
     background-size: contain;
 }
@@ -26,7 +26,7 @@
     height: calc(85vw * 2635/4400);
     background-size: contain;
     background-repeat: no-repeat;
-    background-image: url("../img/fbkplain.png");
+    background-image: url("img/fbkplain.png");
 }
 
 .oruyanke {

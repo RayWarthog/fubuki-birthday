@@ -11,6 +11,8 @@ const htmlmin = require('gulp-htmlmin');
 const babel = require('gulp-babel');
 const uglify = require('gulp-uglify');
 
+const imagemin = require('gulp-imagemin');
+
 function minifycss() {
     return src('src/*.css')
         .pipe(cleanCSS({
@@ -70,4 +72,10 @@ function minifyjs() {
         .pipe(dest('dist'))
 }
 
-exports.build = series(minifycss, build_html, minifyjs);
+function minifyimg() {
+    return src('src/img/*')
+        .pipe(imagemin())
+        .pipe(dest('dist/img'))
+}
+
+exports.build = series(minifycss, build_html, minifyjs, minifyimg);
