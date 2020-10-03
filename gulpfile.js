@@ -78,4 +78,5 @@ function minifyimg() {
         .pipe(dest('dist/img'))
 }
 
-exports.build = series(minifycss, build_html, minifyjs, minifyimg);
+exports.build_full = series(minifycss, build_html, minifyjs, minifyimg);
+exports.build = series(minifycss, build_html, minifyjs);
