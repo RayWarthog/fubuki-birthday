@@ -13,11 +13,8 @@
     width: 85vw;
     height: calc(85vw * 2635/4400);
     background-image: url("../img/plaintext.png");
+    background-repeat: no-repeat;
     background-size: contain;
-}
-
-#main-img-container img {
-    position: absolute;
 }
 
 #bg-txt {
@@ -28,14 +25,16 @@
     width: 85vw;
     height: calc(85vw * 2635/4400);
     background-size: contain;
+    background-repeat: no-repeat;
     background-image: url("../img/fbkplain.png");
 }
 
-img.oruyanke {
+.oruyanke {
+    position: absolute;
     width: 10%;
 }
 
-img.oruyanke:hover, img.oruyanke[aria-expanded="true"] {
+.oruyanke:hover, .oruyanke[aria-expanded="true"] {
     -webkit-filter: drop-shadow(3px 3px 0 yellow) drop-shadow(-3px -3px 0 yellow);
     filter: drop-shadow(3px 3px 0 yellow) drop-shadow(-3px -3px 0 yellow);
 }
