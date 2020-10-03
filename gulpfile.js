@@ -74,7 +74,11 @@ function minifyjs() {
 
 function minifyimg() {
     return src('src/img/*')
-        .pipe(imagemin())
+        .pipe(imagemin([
+            imagemin.optipng({
+                interlaced: true
+            })
+        ]))
         .pipe(dest('dist/img'))
 }
 
