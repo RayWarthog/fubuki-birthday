@@ -25,7 +25,10 @@
 }
 
 #fbk-img {
-    width: 100%;
+    width: 85vw;
+    height: calc(85vw * 2635/4400);
+    background-size: contain;
+    background-image: url("../img/fbkplain.png");
 }
 
 img.oruyanke {
