@@ -51,6 +51,10 @@ img.oruyanke:hover {
     display: none;
 }
 
+.name {
+    font-size: medium;
+}
+
 .msg {
     white-space: pre-wrap;
     font-size: large;
