@@ -1,58 +1,16 @@
-const showEvents = ['mouseenter', 'focus'];
-const hideEvents = ['mouseleave', 'blur'];
-
-let popper_instances = {};
-
-let show = () => {
-    this.setAttribute('data-show', '');
-}
-
-let hide = () => {
-    this.removeAttribute('data-show');
-}
-
-let message_nodes = document.querySelector('#messages-container').childNodes
-message_nodes.forEach((message_node) => {
-    let target_id = message_node.getAttribute('data-target');
-    let or = document.getElementById(target_id);
-
-    if (or) {
-        let instance = Popper.createPopper(or, message_node, {
-            placement: 'auto'
-        });
-        showEvents.forEach((event) => {
-            or.addEventListener(event, function () {
-                message_node.setAttribute('data-show', '');
-            });
-        });
-        hideEvents.forEach((event) => {
-            or.addEventListener(event, function () {
-                message_node.removeAttribute('data-show');
-            });
-        });
-        popper_instances[target_id] = instance;
-    }
+tippy('.oruyanke', {
+    content(reference) {
+        let id = reference.id;
+        return document.querySelector('[data-target=' + id + ']');
+    },
 });
 
 // Editing mode
-let edit_mode = true;
-
-let update_tooltip_position = (target_id) => {
-    if (typeof target_id === 'undefined') {
-        return;
-    }
-    if (!target_id) {
-        return;
-    }
-    if (target_id in popper_instances) {
-        popper_instances[target_id].update();
-    }
-}
-
+let edit_mode = false;
 let make_element_transformable = (elem) => {
     $(elem).draggable({
         containment: "#content",
-        start: function() {
+        start: function () {
             $(this).parent().append($(this));
         },
         stop: function () {
@@ -61,12 +19,11 @@ let make_element_transformable = (elem) => {
             $(this).css("left", l);
             $(this).css("top", t);
         },
-        drag: function () {
-            update_tooltip_position(this.id);
-        },
     });
-    $(elem).click(function(){
-        $(this).parent().append($(this));
+    $(elem).click(function () {
+        if (edit_mode) {
+            $(this).parent().append($(this));
+        }
     });
 }
 
@@ -87,7 +44,7 @@ let toggleEditMode = (enable) => {
     return edit_mode;
 }
 
-$('#add-btn').click(function(){
+$('#add-btn').click(function () {
     let elem = $('<img></img>').addClass('oruyanke').attr('src', "img/templateoruyanke.png");
     $('#main-img-container').append(elem);
     make_element_transformable(elem);

@@ -115,7 +115,7 @@
         {{#each messages}}
         <div class="msg-container" data-target="{{targetid}}">
             <div class="name">{{name}}</div>
-            <div class="msg">{{msg}}</div>
+            <div class="msg"><!-- htmlmin:ignore -->{{msg}}<!-- htmlmin:ignore --></div>
         </div>
         {{/each}}
     </div>
@@ -127,6 +127,7 @@
         integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
         crossorigin="anonymous"></script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
     <script src="src/index.js"></script>
 </body>
 

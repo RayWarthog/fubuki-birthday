@@ -38,17 +38,22 @@ img.oruyanke:hover {
 }
 
 .msg-container {
-    display: none;
     background: #333;
     color: white;
     font-weight: bold;
     padding: 4px 8px;
     font-size: 13px;
     border-radius: 4px;
+    max-width: 600px;
 }
 
-.msg-container[data-show] {
-    display: block;
+#messages-container {
+    display: none;
+}
+
+.msg {
+    white-space: pre-wrap;
+    font-size: large;
 }
 
 #edit-controls {
